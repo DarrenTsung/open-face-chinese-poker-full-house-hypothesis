@@ -6,7 +6,7 @@ pub struct StartSetWithRandom {
 
 impl Strategy for StartSetWithRandom {
     fn name(&self) -> String {
-        format!("StartSetWithRandom(index={})", self.player_index)
+        format!("StartSetWithRandom(player_index={})", self.player_index)
     }
 
     fn run(
