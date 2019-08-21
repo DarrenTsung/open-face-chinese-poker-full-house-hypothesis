@@ -25,11 +25,13 @@ fn main() {
 
     let mut strategies: Vec<Arc<Strategy>> = vec![Arc::new(strategies::StartSetWithRandom)];
 
-    for index in 0..4 {
-        strategies.push(Arc::new(strategies::ChoosePairFromDraw {
-            number_of_players: 4,
-            draws_to_transition_to_two_remaining: index,
-        }));
+    for players in 3..=4 {
+        for index in 0..3 {
+            strategies.push(Arc::new(strategies::ChoosePairFromDraw {
+                number_of_players: players,
+                draws_to_transition_to_two_remaining: index,
+            }));
+        }
     }
 
     let runs = (0..opt.runs).collect::<Vec<_>>();
