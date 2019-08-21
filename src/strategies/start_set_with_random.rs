@@ -1,10 +1,12 @@
 use crate::*;
 
-pub struct StartSetWithRandom;
+pub struct StartSetWithRandom {
+    pub player_index: usize
+}
 
 impl Strategy for StartSetWithRandom {
     fn name(&self) -> String {
-        "StartSetWithRandom".to_string()
+        format!("StartSetWithRandom(index={})", self.player_index)
     }
 
     fn run(
@@ -14,6 +16,12 @@ impl Strategy for StartSetWithRandom {
         revealed_cards: &mut RevealedCards,
         shuffled_remaining_cards: &[Card],
     ) -> bool {
+        // Reveal cards for players before
+        let cards_to_reveal = self.player_index * 5;
+        for card in shuffled_remaining_cards.iter().take(cards_to_reveal) {
+            revealed_cards.increment(card.value, 1);
+        }
+
         // Choose highest-probability to pair card
         let card_0_value = other_cards_in_hand[0].value;
         let card_1_value = other_cards_in_hand[1].value;
@@ -26,7 +34,7 @@ impl Strategy for StartSetWithRandom {
         };
 
         // Each player draws 8 random cards
-        for card in shuffled_remaining_cards.iter().take(8) {
+        for card in shuffled_remaining_cards.iter().skip(cards_to_reveal).take(8) {
             if chosen_pair_value == card.value {
                 return true;
             }

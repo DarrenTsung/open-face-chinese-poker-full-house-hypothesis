@@ -23,7 +23,11 @@ fn main() {
     let triple_value = 4;
     let other_cards_in_hand = [Card { suit: 3, value: 11 }, Card { suit: 4, value: 8 }];
 
-    let mut strategies: Vec<Arc<Strategy>> = vec![Arc::new(strategies::StartSetWithRandom)];
+    let mut strategies: Vec<Arc<Strategy>> = vec![];
+
+    for player_index in 0..=3 {
+        strategies.push(Arc::new(strategies::StartSetWithRandom { player_index }));
+    }
 
     for players in 3..=4 {
         for index in 0..3 {
