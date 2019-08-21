@@ -8,5 +8,5 @@ use structopt::StructOpt;
 pub struct Opt {
     /// The number of runs used to calculate probability. Defaults to 1,000.
     #[structopt(long = "runs", default_value = "1000")]
-    runs: usize,
+    pub runs: usize,
 }
