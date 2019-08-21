@@ -73,3 +73,6 @@ ChoosePairFromDraw(players=4, draws=2) - 411987 / 1000000 (41.1987%)
 If there are 4 players and you go first, it is marginally better (44.39% vs 43.67%) to wait till the draw stage and choose the first 3-remaining or 2-remaining card for the pair in the full-house.
 
 These statistics are only slightly compelling alone, however, if you have a reason you might want to pair the other two cards in your hand (for example, aiming for a flush in the middle row) you can feel free to do so without feeling like you are compromising your probability of hitting a full-house on the bottom row.
+
+## Disclaimer
+The code may be flawed and giving the wrong results due to human error. Modify your open-face chinese poker strats at your own risk.
