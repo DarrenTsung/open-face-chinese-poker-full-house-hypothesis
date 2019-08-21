@@ -42,10 +42,4 @@ impl RevealedCards {
     pub fn increment(&mut self, card_value: u8, count: usize) {
         self.0[(card_value - 1) as usize] += count;
     }
-
-    pub fn reset(&mut self) {
-        for i in 0..13 {
-            self.0[i] = 0;
-        }
-    }
 }

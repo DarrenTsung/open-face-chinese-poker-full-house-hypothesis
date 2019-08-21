@@ -6,7 +6,7 @@ pub use self::start_set_with_random::*;
 
 use crate::*;
 
-pub trait Strategy {
+pub trait Strategy: Send + Sync {
     /// Returns the display name of the strategy.
     fn name(&self) -> String;
 
