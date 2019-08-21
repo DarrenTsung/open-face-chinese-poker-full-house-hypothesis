@@ -28,8 +28,17 @@ fn main() {
         || (card.value == 8 && card.suit == 4) // discard if other card
     });
 
-    let strategies = vec![&strategies::StartSetWithRandom];
+    let mut strategies: Vec<Box<Strategy>> = vec![Box::new(strategies::StartSetWithRandom)];
+
+    for index in 0..2 {
+        strategies.push(Box::new(strategies::ChoosePairFromDraw {
+            number_of_players: 4,
+            draws_to_transition_to_two_remaining: index,
+        }));
+    }
+
     for strategy in strategies {
+        println!("");
         let mut pb = ProgressBar::new(opt.runs as u64);
 
         let mut successful_runs = 0;

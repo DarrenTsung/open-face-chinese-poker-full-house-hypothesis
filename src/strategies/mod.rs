@@ -1,5 +1,7 @@
 mod start_set_with_random;
+mod choose_pair_from_draw;
 
+pub use self::choose_pair_from_draw::*;
 pub use self::start_set_with_random::*;
 
 use crate::*;
