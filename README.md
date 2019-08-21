@@ -15,9 +15,9 @@ For example, if there was already a Jack out on the field and no 8s, you would p
 
 This has the benefit of requiring only drawing 1 card matching the card you placed down.
 
-However, I believe it may make sense to wait to choose the card used for the pair based on the amount of information revealed on the board when you choose your set and the amount of information to be revealed after you begin drawing.
+However, I believe it may make sense to wait to choose the card used for the pair based on the amount of information revealed on the board when the drawing stage begins.
 
-For example, the most extreme case of this would be when you're going first in a four-person game. You have no information about cards drawn when you reveal your hand, and you would know which 15 of the cards were drew by your opponents once you begin drawing.
+For example, the most extreme case of this would be when you're going first in a four-person game. You have no information about cards drawn when you reveal your hand, and you would know which 15 of the cards were already drawn by your opponents once you begin drawing.
 
 Therefore, you might choose to place this set of cards on the bottom row:
 ```
@@ -71,3 +71,5 @@ ChoosePairFromDraw(players=4, draws=2) - 411987 / 1000000 (41.1987%)
 
 ## Conclusion
 If there are 4 players and you go first, it is marginally better (44.39% vs 43.67%) to wait till the draw stage and choose the first 3-remaining or 2-remaining card for the pair in the full-house.
+
+These statistics are only slightly compelling alone, however, if you have a reason you might want to pair the other two cards in your hand (for example, aiming for a flush in the middle row) you can feel free to do so without feeling like you are compromising your probability of hitting a full-house on the bottom row.
